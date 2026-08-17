@@ -14,11 +14,11 @@ def search_codebase(query: str):
     query_vector = list(embedding_model.embed([query]))[0].tolist()
     
     # 3. Search Qdrant for the most mathematically similar code chunk
-    search_results = client.search(
+    search_results = client.query_points(
         collection_name=COLLECTION_NAME,
-        query_vector=query_vector,
-        limit=1  # Only return the single best match
-    )
+        query=query_vector,
+        limit=1
+    ).points
     
     # 4. Display the results
     if not search_results:
