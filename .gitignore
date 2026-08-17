@@ -1,0 +1,7 @@
+# Python Virtual Environments & Cache
+venv/
+ai-engine/venv/
+__pycache__/
+
+# Environment Variables (Secrets)
+.env
